@@ -1,0 +1,7 @@
+{
+  "name": "checkvax-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
