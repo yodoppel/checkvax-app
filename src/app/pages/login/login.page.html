@@ -1,0 +1,35 @@
+
+<ion-content>
+  <div class="flex-center">
+    <form [formGroup]="form">
+    <!--every component of login is inside card property-->
+    <ion-card> 
+      <ion-card-header>
+        <ion-card-title class="title-style" color="primary">CheckVax</ion-card-title>
+      </ion-card-header>
+      <!-- ID and Pass-->
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="text" formControlName="email" id="email" placeholder="abc@gmail.com"></ion-input>
+        </ion-item>
+        <app-error-message [field]="form.get('email')" error="required" message="* Email is mandatory"></app-error-message>
+        <app-error-message [field]="form.get('email')" error="email" message="* Email is invalid"></app-error-message>
+        
+       
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password" id="password"></ion-input>
+        </ion-item>
+        <app-error-message [field]="form.get('password')" error="required" message="* Password is mandatory"></app-error-message>
+        <ion-button color="dark" fill="" (click)="forgotEmailPassword()" [disabled]="!form.get('password').valid" 
+        size="full" id="recoverPasswordButton">Forgot password</ion-button> <!--If user forgot-->
+        <ion-button  (click)="login()" id="loginButton" color="primary" [disabled]="!form.valid" size="full">Login</ion-button> <!--Login button-->
+        <ion-button (click)="navReg()" color="primary" fill="clear" size="full">Register</ion-button>  <!--Directed to register page-->
+      </ion-card-content>
+    </ion-card>
+  </form>
+  </div>
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+   
+    <ion-title color="primary" style=" padding-left:83px; font-weight: bold;">Setting</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-list style="margin-left:30px" *ngIf="user$ | async as user">
+    <ion-item >
+      <ion-label style="font-weight:bold">Account</ion-label>
+    </ion-item>
+    <ion-item routerLink="/profile">
+      <ion-label>Edit Profile</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Change Password</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-weight:bold">More</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Language</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button color="danger" (click)="logout()" fill="clear">Logout</ion-button>
+</ion-content>

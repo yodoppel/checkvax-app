@@ -1,29 +1,54 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+    <ion-menu menuID="main-menu" content-id="main" side="start">
+        <ion-header>
+          <ion-toolbar>
+          <ion-title color="primary">CheckVax</ion-title>
+        </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+              <ion-menu-toggle>
+                <ion-item routerLink="/home">
+                  <ion-icon name="home-outline" slot="start" color="primary"></ion-icon>
+                  <ion-label class="lbl-menu" color="primary">HOME</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle>
+                <ion-item routerLink="/profile">
+                  <ion-icon name="person-outline" slot="start" color="primary"></ion-icon>
+                  <ion-label class="lbl-menu" color="primary">PROFILE</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+             <ion-menu-toggle>
+              <ion-item routerLink="/setting">
+                <ion-icon name="settings-outline" slot="start" color="primary"></ion-icon>
+                <ion-label class="lbl-menu" color="primary">SETTING</ion-label>
+              </ion-item>
+             </ion-menu-toggle>
+              <ion-menu-toggle>
+                <ion-item routerLink="/status">
+                  <ion-icon name="body-outline" slot="start" color="primary"></ion-icon>
+                  <ion-label class="lbl-menu" color="primary">STATUS</ion-label>
+                </ion-item>
+              </ion-menu-toggle>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+             <ion-menu-toggle>
+            <ion-item routerLink="/report">
+              <ion-icon name="stats-chart-outline" slot="start" color="primary"></ion-icon>
+              <ion-label class="lbl-menu" color="primary">REPORT</ion-label>
             </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
+             </ion-menu-toggle>
+            </ion-list>
+        
       </ion-content>
     </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+    <ion-router-outlet id="main"></ion-router-outlet>
+    <app-loading></app-loading>
+<!--   
+  <ngx-qrcode 
+    [elementType]="elementType" 
+    [value]="value"
+    cssClass="aclass"
+    errorCorrectionLevel="L">
+  </ngx-qrcode> -->
 </ion-app>

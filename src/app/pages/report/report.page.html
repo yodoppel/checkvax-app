@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+   
+    <ion-title color="primary" style=" padding-left:83px; font-weight: bold; justify-content:center">Report</ion-title>
+    
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+
+  <ion-segment [(ngModel)]="selectTabs" scrollable value="department">
+    <ion-segment-button value="security">
+      <ion-label>Security</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="marketing">
+      <ion-label >Marketing</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="finance">
+      <ion-label >Finance</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="humanresource">
+      <ion-label >Human Resource</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+  
+    <ion-list *ngIf="selectTabs == 'security'">
+    <ion-item>
+      <div>
+    <ion-avatar style="width:80px; height:80px;">
+      <img src="https://i.postimg.cc/rpsLZskR/Nur-Natasha-Asyikin.jpg">
+    </ion-avatar>
+  </div>
+  <div style="padding-left:15px">
+  <ion-list line="none">
+    <ion-label class="ion-text-wrap" style="font-weight:bold; font-size:12px">NUR NATASHA ASYIKIN BINTI MOHD NIZAM</ion-label>
+    <ion-label style="white-space:normal; font-size:12px;">CC20037</ion-label>
+    <ion-chip outline color="primary">
+      <ion-label class="ion-text-wrap">FULLY VACCINATED</ion-label>
+    </ion-chip>
+    <ion-chip outline color="success">
+      <ion-label class="ion-text-wrap">BOOSTER</ion-label>
+    </ion-chip>
+  </ion-list>
+  </div>
+    </ion-item>
+   </ion-list>
+   <!-- Next User-->
+   <ion-list *ngIf="selectTabs == 'marketing'">
+    <ion-item>
+      <div>
+    <ion-avatar style="width:80px; height:80px;">
+      <img src="https://i.postimg.cc/vTJBb9GK/image.png">
+    </ion-avatar>
+  </div>
+  <div style="padding-left:15px">
+  <ion-list line="none">
+    <ion-label class="ion-text-wrap" style="font-weight:bold; font-size:12px">NURUL ADRIANA BINTI AFFENDY</ion-label>
+    <ion-label style="white-space:normal; font-size:12px;">CC20077</ion-label>
+    <ion-chip outline color="warning">
+      <ion-label class="ion-text-wrap">FIRST DOSE</ion-label>
+    </ion-chip>
+  </ion-list>
+  </div>
+    </ion-item>
+   </ion-list>
+   <!-- Next User-->
+   <ion-list *ngIf="selectTabs == 'finance'">
+    <ion-item>
+      <div>
+    <ion-avatar style="width:80px; height:80px;">
+      <img src="https://i.postimg.cc/B6GG75cY/image.png">
+    </ion-avatar>
+  </div>
+  <div style="padding-left:15px">
+  <ion-list line="none">
+    <ion-label class="ion-text-wrap" style="font-weight:bold; font-size:12px">NUR ANIS ATHIRAH BINTI YUSRI</ion-label>
+    <ion-label style="white-space:normal; font-size:12px;">CC20095</ion-label>
+    <ion-chip outline color="danger">
+      <ion-label class="ion-text-wrap">UNVACCINATED</ion-label>
+    </ion-chip>
+  </ion-list>
+  </div>
+    </ion-item>
+   </ion-list>
+
+</ion-content>

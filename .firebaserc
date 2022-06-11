@@ -1,0 +1,21 @@
+{
+  "projects": {
+    "default": "checkvax-a1e9c"
+  },
+  "targets": {
+    "checkvax-app": {
+      "hosting": {
+        "app": [
+          "checkvax-app"
+        ]
+      }
+    },
+    "checkvax-a1e9c": {
+      "hosting": {
+        "app": [
+          "checkvax-a1e9c"
+        ]
+      }
+    }
+  }
+}

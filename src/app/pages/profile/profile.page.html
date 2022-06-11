@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+   
+    <ion-title color="primary" style=" padding-left:83px; font-weight: bold;">Profile</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user">
+  <form [formGroup]="profileForm">
+  <div class="avatar"  >
+    <ion-avatar style="width:80px; height:80px;">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar></div>
+    <ion-list style="padding:20px" lines="none">
+      <ion-item>
+        <ion-label class="title">Name</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label  type="text">{{ user.name }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="title">Staff ID</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label type="text">{{ user.staffid }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="title">Email</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ user.email }}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="title">Department</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label class="title" position="floating" color="medium"></ion-label>
+        <ion-select formControlName="department" id="department" value="" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="Finance" checked="true">Finance</ion-select-option>
+          <ion-select-option value="Human Resource">Human Resource</ion-select-option>
+          <ion-select-option value="Marketing">Marketing</ion-select-option>
+          <ion-select-option value="Security">Security</ion-select-option>
+        </ion-select>
+      </ion-item>
+        <ion-item>
+          <ion-label class="title">NRIC</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label type="text">{{ user.ic }}</ion-label >
+        </ion-item>
+        
+      <ion-item>
+        <ion-label class="title">Phone Number</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-input formControlName="phoneNum" type="text" placeholder="{{ user.phoneNum }}"></ion-input>
+      </ion-item>
+     
+    </ion-list>
+    <ion-button (click)="saveProfile(user.id)" type="submit" color="primary" fill="clear">SAVE</ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+   
+    <ion-title color="primary" style=" font-weight: bold; text-align:center">Status</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user">
+<ion-list >
+  <ion-item color="success">
+<ion-label style="text-align:center">Verified</ion-label>
+</ion-item>
+</ion-list>
+<ion-card>
+  <ion-card-content>
+  <ion-list>
+    <ion-item>
+    <ion-label style="font-weight:bold; text-align:center;">PERSONAL DETAILS</ion-label>
+    </ion-item>
+    <ion-item style="justify-content:flex-start">
+    <ion-label>Name</ion-label>
+    <ion-label style="white-space:normal">{{user?.name}}</ion-label>
+  </ion-item>
+    <ion-item>   
+        <ion-label >NRIC</ion-label>
+        <ion-label >{{user?.ic}}</ion-label>
+   </ion-item>
+   <ion-item> 
+        <ion-label >Staff ID</ion-label>
+        <ion-label >{{user?.staffid}}</ion-label>
+  </ion-item>
+    <ion-item>
+      <ion-label >Phone Number</ion-label>
+      <ion-label >{{user?.phoneNum}}</ion-label>
+      </ion-item>
+  </ion-list>
+  </ion-card-content>
+</ion-card>
+
+<app-status-card *ngFor="let appointment of appointments" [hasTitle]="true" title="{{appointment.appointmentType}}" facility="{{appointment.healthFacilities}}"
+ vaccineType="{{appointment.vaccineType}}" date={{appointment.date}} status="Completed">
+</app-status-card>
+
+
+<ion-button (click)="navHome()">DONE</ion-button>
+
+</ion-content>

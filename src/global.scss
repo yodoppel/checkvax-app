@@ -24,3 +24,28 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.flex-center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.title-style{
+    font-family: Sans-serif;
+    font-weight: bold;
+    font-size:40px;
+    display:flex;
+    justify-content: center;
+}
+.toast-custom-add {
+      
+    --background:#2dd36f;
+   
+}
+.toast-custom-delete {
+       
+    --background:#eb445a;
+    
+}

@@ -1,0 +1,48 @@
+<ion-header  *ngIf="user$ | async as user">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+   
+    <ion-title color="primary" style=" padding-left:83px; font-weight: bold; justify-content:center">{{user.name}}</ion-title>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item>
+  <ion-input type="text" placeholder="MY QR Code data" [(ngModel)]="qrData">
+  </ion-input>
+</ion-item>
+
+
+
+
+  <ion-card class="qrcenter" *ngIf="qrData" text-center>
+    <div class="qrcenter">
+    <ngx-qrcode [value]="qrData" [elementType]="elementType"></ngx-qrcode>
+  </div>
+   
+  </ion-card>
+
+  <div class="ion-padding">
+    <ion-button (click)="scanCode()" expand="full" color="secondary">
+      <ion-icon name="qr-scanner"></ion-icon> 
+      Scan Code</ion-button>
+      
+  </div>
+ <ion-card-content>
+      <ion-button expand="full" color="tertiary" (click)="downloadQR()" *ngIf="elementType === 'canvas'">
+        <ion-icon name="download" slot="start"></ion-icon>
+        Download QR Code
+      </ion-button>
+    </ion-card-content> 
+
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Result from Scan: {{ scannedCode }}
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

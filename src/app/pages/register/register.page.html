@@ -1,0 +1,67 @@
+
+<ion-content>
+  <form [formGroup]="registerForm.getForm()">
+  <div class="flex-center">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="title-style" color="primary">CheckVax</ion-card-title>
+        <p style="color:black; text-align:center;" >REGISTER</p>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item>
+          <ion-label color="medium" position="floating">Full Name</ion-label>
+          <ion-input formControlName="name" placeholder="CAPITAL LETTER"type="text"id="name" ></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('name')" error="required" message="* Name is mandatory"></app-error-message>
+        <ion-item>
+          <ion-label color="medium" position="floating">Staff ID</ion-label>
+          <ion-input formControlName="staffid" type="text"id="staffid"></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('staffid')" error="required" message="* Staff ID is mandatory"></app-error-message>
+        <app-error-message [field]="registerForm.getForm().get('staffid')" error="minlength" message="* Staff ID must be at least 7 characters"></app-error-message>
+        <ion-item>
+          <ion-label  position="floating" color="medium">Department</ion-label>
+          <ion-select formControlName="department" id="department" value="" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="Finance" checked="true">Finance</ion-select-option>
+            <ion-select-option value="Human Resource">Human Resource</ion-select-option>
+            <ion-select-option value="Marketing">Marketing</ion-select-option>
+            <ion-select-option value="Security">Security</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('department')" error="required" message="* Department is mandatory"></app-error-message>
+        <ion-item>
+          <ion-label color="medium" position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email" id="email"></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('email')"  error="required" message="* Email is mandatory"></app-error-message>
+        <app-error-message [field]="registerForm.getForm().get('email')" error="email" message="* Email is invalid"></app-error-message>
+        <ion-item>
+          <ion-label color="medium" position="floating">Password</ion-label>
+          <ion-input formControlName="password"  type="password" id="password" ></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('password')"  error="required" message="* Password is mandatory"></app-error-message>
+        <app-error-message [field]="registerForm.getForm().get('password')" error="minlength" message="*Password must be at least 6 characters"></app-error-message>
+        <ion-item>
+          <ion-label color="medium" position="floating">Confirm Password</ion-label>
+          <ion-input formControlName="confirmpass" type="password" id="confirmpass" ></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('confirmpass')"  error="required" message="* Confirmpass is mandatory"></app-error-message>
+        <ion-item>
+          <ion-label color="medium" position="floating">Phone Number</ion-label>
+          <ion-input formControlName="phoneNum" type="tel" id="phoneNum" placeholder="01234567890" ></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('phoneNum')"  error="required" message="* Phone Number is mandatory"></app-error-message>
+        <ion-item>
+          <ion-label color="medium" position="floating">Identity Card </ion-label>
+          <ion-input  formControlName="ic"  type="text" id="ic" placeholder="Ex: 010203040506" ></ion-input>
+        </ion-item>
+        <app-error-message [field]="registerForm.getForm().get('ic')"  error="required" message="* IC is mandatory"></app-error-message>
+        <ion-button (click)="Register()" color="primary"  size="full"[disabled]="!registerForm.getForm().valid">Register</ion-button>
+        <ion-button  (click)="navLogin()" color="primary" fill="clear" size="full">Login</ion-button>
+      </ion-card-content>
+    </ion-card>
+ 
+  </div>
+  </form>
+</ion-content>

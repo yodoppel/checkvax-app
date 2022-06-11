@@ -3,6 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: 'checkvax-a1e9c',
+    appId: '1:99562348902:web:936ae8d4b08a9b5a8ca8a7',
+    storageBucket: 'checkvax-a1e9c.appspot.com',
+    apiKey: 'AIzaSyDChgi_dNRprtZF-ggQ2gDjrHS6_qArzBE',
+    authDomain: 'checkvax-a1e9c.firebaseapp.com',
+    messagingSenderId: '99562348902',
+  }, 
+  
   production: false
 };
 
